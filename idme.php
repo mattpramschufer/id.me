@@ -32,6 +32,23 @@ class IDME {
     private $AccessToken;
     private $Code;
 
+    /**
+     * function __construct()
+     * Set ClientId / ClientSecret / RedirectUri if passed
+     * into the class
+     * @param type $code
+     */
+    public function __construct( $parameters=null ) {
+        if ( is_array( $parameters ) && isset( $parameters['ClientId'] ) ) {
+            $this->ClientId = $parameters['ClientId'];
+        }
+        if ( is_array( $parameters ) && isset( $parameters['ClientSecret'] ) ) {
+            $this->ClientSecret = $parameters['ClientSecret'];
+        }
+        if ( is_array( $parameters ) && isset( $parameters['RedirectUri'] ) ) {
+            $this->RedirectUri = $parameters['RedirectUri'];
+        }
+    }
     
     /**
      * function verify()
